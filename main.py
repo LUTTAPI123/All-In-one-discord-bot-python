@@ -24,9 +24,10 @@ import wikipedia
 import random
 from discord import Spotify
 from googleapiclient.discovery import build
+config = default.config()
 
 
-client = commands.Bot(command_prefix=['a!', 'A!'],
+client = commands.Bot(command_prefix=config['prefix'],
                       intents=discord.Intents.all())
 client.remove_command('help')
 client.sniped_messages = {}
@@ -43,7 +44,6 @@ if __name__ == '__main__':
     for extension in initial_extensions:
         client.load_extension(extension)
 
-config = default.config()
 
 
 @client.event
